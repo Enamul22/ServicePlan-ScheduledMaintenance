@@ -1,0 +1,802 @@
+{
+  "ALD": {
+    "policy": "fixed-km-1",
+    "service_level": 10000,
+    "target_km": 10000,
+    "packages": [
+      "P10000",
+      "P5000",
+      "P1000"
+    ],
+    "tasks": [
+      {
+        "task_id": "AIR",
+        "package_id": "P10000",
+        "name": "Replace engine air filter",
+        "mandatory": true,
+        "parts": [
+          {
+            "sku": "SP-ALD-AIR",
+            "quantity": "1",
+            "unit": "unit"
+          }
+        ]
+      },
+      {
+        "task_id": "PLUG",
+        "package_id": "P10000",
+        "name": "Replace spark-plug set",
+        "mandatory": true,
+        "parts": [
+          {
+            "sku": "SP-ALD-PLUG",
+            "quantity": "1",
+            "unit": "set"
+          }
+        ]
+      },
+      {
+        "task_id": "EXTENDED",
+        "package_id": "P10000",
+        "name": "Complete extended inspection checklist",
+        "mandatory": true,
+        "parts": [
+          {
+            "sku": "SP-ALD-WIPE",
+            "quantity": "3",
+            "unit": "unit"
+          }
+        ]
+      },
+      {
+        "task_id": "OIL",
+        "package_id": "P5000",
+        "name": "Replace engine oil",
+        "mandatory": true,
+        "parts": [
+          {
+            "sku": "SP-ALD-OIL",
+            "quantity": "3.5",
+            "unit": "L"
+          }
+        ]
+      },
+      {
+        "task_id": "FILTER",
+        "package_id": "P5000",
+        "name": "Replace oil filter and sealing washer",
+        "mandatory": true,
+        "parts": [
+          {
+            "sku": "SP-ALD-FILTER",
+            "quantity": "1",
+            "unit": "unit"
+          },
+          {
+            "sku": "SP-ALD-SEAL",
+            "quantity": "1",
+            "unit": "unit"
+          }
+        ]
+      },
+      {
+        "task_id": "FINDINGS",
+        "package_id": "P5000",
+        "name": "Record lubrication inspection findings",
+        "mandatory": true,
+        "parts": []
+      },
+      {
+        "task_id": "BASIC",
+        "package_id": "P1000",
+        "name": "Complete the basic inspection checklist",
+        "mandatory": true,
+        "parts": [
+          {
+            "sku": "SP-ALD-BASIC-KIT",
+            "quantity": "1",
+            "unit": "unit"
+          },
+          {
+            "sku": "SP-ALD-WIPE",
+            "quantity": "2",
+            "unit": "unit"
+          }
+        ]
+      },
+      {
+        "task_id": "FLUID-CHECK",
+        "package_id": "P1000",
+        "name": "Inspect fluid levels and record findings",
+        "mandatory": true,
+        "parts": []
+      },
+      {
+        "task_id": "CONNECTION",
+        "package_id": "P1000",
+        "name": "Check connections and visible condition",
+        "mandatory": true,
+        "parts": []
+      },
+      {
+        "task_id": "WASHER",
+        "package_id": "P1000",
+        "name": "Top up washer fluid if needed",
+        "mandatory": false,
+        "parts": [
+          {
+            "sku": "SP-ALD-WASHER",
+            "quantity": "1",
+            "unit": "L"
+          }
+        ]
+      }
+    ],
+    "parts": [
+      {
+        "sku": "SP-ALD-AIR",
+        "name": "Engine air filter",
+        "quantity": "1",
+        "required_quantity": "1",
+        "unit": "unit",
+        "model_id": "ALD"
+      },
+      {
+        "sku": "SP-ALD-PLUG",
+        "name": "Spark-plug set",
+        "quantity": "1",
+        "required_quantity": "1",
+        "unit": "set",
+        "model_id": "ALD"
+      },
+      {
+        "sku": "SP-ALD-WIPE",
+        "name": "Cleaning wipe",
+        "quantity": "5",
+        "required_quantity": "5",
+        "unit": "unit",
+        "model_id": "ALD"
+      },
+      {
+        "sku": "SP-ALD-OIL",
+        "name": "Engine oil",
+        "quantity": "3.5",
+        "required_quantity": "3.5",
+        "unit": "L",
+        "model_id": "ALD"
+      },
+      {
+        "sku": "SP-ALD-FILTER",
+        "name": "Oil filter",
+        "quantity": "1",
+        "required_quantity": "1",
+        "unit": "unit",
+        "model_id": "ALD"
+      },
+      {
+        "sku": "SP-ALD-SEAL",
+        "name": "Sealing washer",
+        "quantity": "1",
+        "required_quantity": "1",
+        "unit": "unit",
+        "model_id": "ALD"
+      },
+      {
+        "sku": "SP-ALD-BASIC-KIT",
+        "name": "Basic service consumables kit",
+        "quantity": "1",
+        "required_quantity": "1",
+        "unit": "unit",
+        "model_id": "ALD"
+      },
+      {
+        "sku": "SP-ALD-WASHER",
+        "name": "Washer fluid",
+        "quantity": "1",
+        "required_quantity": "0",
+        "unit": "L",
+        "model_id": "ALD"
+      }
+    ]
+  },
+  "BIR": {
+    "policy": "fixed-km-1",
+    "service_level": 10000,
+    "target_km": 10000,
+    "packages": [
+      "P10000",
+      "P5000",
+      "P1000"
+    ],
+    "tasks": [
+      {
+        "task_id": "AIR",
+        "package_id": "P10000",
+        "name": "Replace engine air filter",
+        "mandatory": true,
+        "parts": [
+          {
+            "sku": "SP-BIR-AIR",
+            "quantity": "1",
+            "unit": "unit"
+          }
+        ]
+      },
+      {
+        "task_id": "PLUG",
+        "package_id": "P10000",
+        "name": "Replace spark-plug set",
+        "mandatory": true,
+        "parts": [
+          {
+            "sku": "SP-BIR-PLUG",
+            "quantity": "1",
+            "unit": "set"
+          }
+        ]
+      },
+      {
+        "task_id": "EXTENDED",
+        "package_id": "P10000",
+        "name": "Complete extended inspection checklist",
+        "mandatory": true,
+        "parts": [
+          {
+            "sku": "SP-BIR-WIPE",
+            "quantity": "3",
+            "unit": "unit"
+          }
+        ]
+      },
+      {
+        "task_id": "OIL",
+        "package_id": "P5000",
+        "name": "Replace engine oil",
+        "mandatory": true,
+        "parts": [
+          {
+            "sku": "SP-BIR-OIL",
+            "quantity": "4.2",
+            "unit": "L"
+          }
+        ]
+      },
+      {
+        "task_id": "FILTER",
+        "package_id": "P5000",
+        "name": "Replace oil filter and sealing washer",
+        "mandatory": true,
+        "parts": [
+          {
+            "sku": "SP-BIR-FILTER",
+            "quantity": "1",
+            "unit": "unit"
+          },
+          {
+            "sku": "SP-BIR-SEAL",
+            "quantity": "1",
+            "unit": "unit"
+          }
+        ]
+      },
+      {
+        "task_id": "FINDINGS",
+        "package_id": "P5000",
+        "name": "Record lubrication inspection findings",
+        "mandatory": true,
+        "parts": []
+      },
+      {
+        "task_id": "BASIC",
+        "package_id": "P1000",
+        "name": "Complete the basic inspection checklist",
+        "mandatory": true,
+        "parts": [
+          {
+            "sku": "SP-BIR-BASIC-KIT",
+            "quantity": "1",
+            "unit": "unit"
+          },
+          {
+            "sku": "SP-BIR-WIPE",
+            "quantity": "2",
+            "unit": "unit"
+          }
+        ]
+      },
+      {
+        "task_id": "FLUID-CHECK",
+        "package_id": "P1000",
+        "name": "Inspect fluid levels and record findings",
+        "mandatory": true,
+        "parts": []
+      },
+      {
+        "task_id": "CONNECTION",
+        "package_id": "P1000",
+        "name": "Check connections and visible condition",
+        "mandatory": true,
+        "parts": []
+      },
+      {
+        "task_id": "WASHER",
+        "package_id": "P1000",
+        "name": "Top up washer fluid if needed",
+        "mandatory": false,
+        "parts": [
+          {
+            "sku": "SP-BIR-WASHER",
+            "quantity": "1",
+            "unit": "L"
+          }
+        ]
+      }
+    ],
+    "parts": [
+      {
+        "sku": "SP-BIR-AIR",
+        "name": "Engine air filter",
+        "quantity": "1",
+        "required_quantity": "1",
+        "unit": "unit",
+        "model_id": "BIR"
+      },
+      {
+        "sku": "SP-BIR-PLUG",
+        "name": "Spark-plug set",
+        "quantity": "1",
+        "required_quantity": "1",
+        "unit": "set",
+        "model_id": "BIR"
+      },
+      {
+        "sku": "SP-BIR-WIPE",
+        "name": "Cleaning wipe",
+        "quantity": "5",
+        "required_quantity": "5",
+        "unit": "unit",
+        "model_id": "BIR"
+      },
+      {
+        "sku": "SP-BIR-OIL",
+        "name": "Engine oil",
+        "quantity": "4.2",
+        "required_quantity": "4.2",
+        "unit": "L",
+        "model_id": "BIR"
+      },
+      {
+        "sku": "SP-BIR-FILTER",
+        "name": "Oil filter",
+        "quantity": "1",
+        "required_quantity": "1",
+        "unit": "unit",
+        "model_id": "BIR"
+      },
+      {
+        "sku": "SP-BIR-SEAL",
+        "name": "Sealing washer",
+        "quantity": "1",
+        "required_quantity": "1",
+        "unit": "unit",
+        "model_id": "BIR"
+      },
+      {
+        "sku": "SP-BIR-BASIC-KIT",
+        "name": "Basic service consumables kit",
+        "quantity": "1",
+        "required_quantity": "1",
+        "unit": "unit",
+        "model_id": "BIR"
+      },
+      {
+        "sku": "SP-BIR-WASHER",
+        "name": "Washer fluid",
+        "quantity": "1",
+        "required_quantity": "0",
+        "unit": "L",
+        "model_id": "BIR"
+      }
+    ]
+  },
+  "CED": {
+    "policy": "fixed-km-1",
+    "service_level": 10000,
+    "target_km": 10000,
+    "packages": [
+      "P10000",
+      "P5000",
+      "P1000"
+    ],
+    "tasks": [
+      {
+        "task_id": "AIR",
+        "package_id": "P10000",
+        "name": "Replace engine air filter",
+        "mandatory": true,
+        "parts": [
+          {
+            "sku": "SP-CED-AIR",
+            "quantity": "1",
+            "unit": "unit"
+          }
+        ]
+      },
+      {
+        "task_id": "PLUG",
+        "package_id": "P10000",
+        "name": "Replace spark-plug set",
+        "mandatory": true,
+        "parts": [
+          {
+            "sku": "SP-CED-PLUG",
+            "quantity": "1",
+            "unit": "set"
+          }
+        ]
+      },
+      {
+        "task_id": "EXTENDED",
+        "package_id": "P10000",
+        "name": "Complete extended inspection checklist",
+        "mandatory": true,
+        "parts": [
+          {
+            "sku": "SP-CED-WIPE",
+            "quantity": "3",
+            "unit": "unit"
+          }
+        ]
+      },
+      {
+        "task_id": "OIL",
+        "package_id": "P5000",
+        "name": "Replace engine oil",
+        "mandatory": true,
+        "parts": [
+          {
+            "sku": "SP-CED-OIL",
+            "quantity": "5.6",
+            "unit": "L"
+          }
+        ]
+      },
+      {
+        "task_id": "FILTER",
+        "package_id": "P5000",
+        "name": "Replace oil filter and sealing washer",
+        "mandatory": true,
+        "parts": [
+          {
+            "sku": "SP-CED-FILTER",
+            "quantity": "1",
+            "unit": "unit"
+          },
+          {
+            "sku": "SP-CED-SEAL",
+            "quantity": "1",
+            "unit": "unit"
+          }
+        ]
+      },
+      {
+        "task_id": "FINDINGS",
+        "package_id": "P5000",
+        "name": "Record lubrication inspection findings",
+        "mandatory": true,
+        "parts": []
+      },
+      {
+        "task_id": "BASIC",
+        "package_id": "P1000",
+        "name": "Complete the basic inspection checklist",
+        "mandatory": true,
+        "parts": [
+          {
+            "sku": "SP-CED-BASIC-KIT",
+            "quantity": "1",
+            "unit": "unit"
+          },
+          {
+            "sku": "SP-CED-WIPE",
+            "quantity": "2",
+            "unit": "unit"
+          }
+        ]
+      },
+      {
+        "task_id": "FLUID-CHECK",
+        "package_id": "P1000",
+        "name": "Inspect fluid levels and record findings",
+        "mandatory": true,
+        "parts": []
+      },
+      {
+        "task_id": "CONNECTION",
+        "package_id": "P1000",
+        "name": "Check connections and visible condition",
+        "mandatory": true,
+        "parts": []
+      },
+      {
+        "task_id": "WASHER",
+        "package_id": "P1000",
+        "name": "Top up washer fluid if needed",
+        "mandatory": false,
+        "parts": [
+          {
+            "sku": "SP-CED-WASHER",
+            "quantity": "1",
+            "unit": "L"
+          }
+        ]
+      }
+    ],
+    "parts": [
+      {
+        "sku": "SP-CED-AIR",
+        "name": "Engine air filter",
+        "quantity": "1",
+        "required_quantity": "1",
+        "unit": "unit",
+        "model_id": "CED"
+      },
+      {
+        "sku": "SP-CED-PLUG",
+        "name": "Spark-plug set",
+        "quantity": "1",
+        "required_quantity": "1",
+        "unit": "set",
+        "model_id": "CED"
+      },
+      {
+        "sku": "SP-CED-WIPE",
+        "name": "Cleaning wipe",
+        "quantity": "5",
+        "required_quantity": "5",
+        "unit": "unit",
+        "model_id": "CED"
+      },
+      {
+        "sku": "SP-CED-OIL",
+        "name": "Engine oil",
+        "quantity": "5.6",
+        "required_quantity": "5.6",
+        "unit": "L",
+        "model_id": "CED"
+      },
+      {
+        "sku": "SP-CED-FILTER",
+        "name": "Oil filter",
+        "quantity": "1",
+        "required_quantity": "1",
+        "unit": "unit",
+        "model_id": "CED"
+      },
+      {
+        "sku": "SP-CED-SEAL",
+        "name": "Sealing washer",
+        "quantity": "1",
+        "required_quantity": "1",
+        "unit": "unit",
+        "model_id": "CED"
+      },
+      {
+        "sku": "SP-CED-BASIC-KIT",
+        "name": "Basic service consumables kit",
+        "quantity": "1",
+        "required_quantity": "1",
+        "unit": "unit",
+        "model_id": "CED"
+      },
+      {
+        "sku": "SP-CED-WASHER",
+        "name": "Washer fluid",
+        "quantity": "1",
+        "required_quantity": "0",
+        "unit": "L",
+        "model_id": "CED"
+      }
+    ]
+  },
+  "ELM": {
+    "policy": "fixed-km-1",
+    "service_level": 10000,
+    "target_km": 10000,
+    "packages": [
+      "P10000",
+      "P5000",
+      "P1000"
+    ],
+    "tasks": [
+      {
+        "task_id": "AIR",
+        "package_id": "P10000",
+        "name": "Replace engine air filter",
+        "mandatory": true,
+        "parts": [
+          {
+            "sku": "SP-ELM-AIR",
+            "quantity": "1",
+            "unit": "unit"
+          }
+        ]
+      },
+      {
+        "task_id": "PLUG",
+        "package_id": "P10000",
+        "name": "Replace spark-plug set",
+        "mandatory": true,
+        "parts": [
+          {
+            "sku": "SP-ELM-PLUG",
+            "quantity": "1",
+            "unit": "set"
+          }
+        ]
+      },
+      {
+        "task_id": "EXTENDED",
+        "package_id": "P10000",
+        "name": "Complete extended inspection checklist",
+        "mandatory": true,
+        "parts": [
+          {
+            "sku": "SP-ELM-WIPE",
+            "quantity": "3",
+            "unit": "unit"
+          }
+        ]
+      },
+      {
+        "task_id": "OIL",
+        "package_id": "P5000",
+        "name": "Replace engine oil",
+        "mandatory": true,
+        "parts": [
+          {
+            "sku": "SP-ELM-OIL",
+            "quantity": "6.3",
+            "unit": "L"
+          }
+        ]
+      },
+      {
+        "task_id": "FILTER",
+        "package_id": "P5000",
+        "name": "Replace oil filter and sealing washer",
+        "mandatory": true,
+        "parts": [
+          {
+            "sku": "SP-ELM-FILTER",
+            "quantity": "1",
+            "unit": "unit"
+          },
+          {
+            "sku": "SP-ELM-SEAL",
+            "quantity": "1",
+            "unit": "unit"
+          }
+        ]
+      },
+      {
+        "task_id": "FINDINGS",
+        "package_id": "P5000",
+        "name": "Record lubrication inspection findings",
+        "mandatory": true,
+        "parts": []
+      },
+      {
+        "task_id": "BASIC",
+        "package_id": "P1000",
+        "name": "Complete the basic inspection checklist",
+        "mandatory": true,
+        "parts": [
+          {
+            "sku": "SP-ELM-BASIC-KIT",
+            "quantity": "1",
+            "unit": "unit"
+          },
+          {
+            "sku": "SP-ELM-WIPE",
+            "quantity": "2",
+            "unit": "unit"
+          }
+        ]
+      },
+      {
+        "task_id": "FLUID-CHECK",
+        "package_id": "P1000",
+        "name": "Inspect fluid levels and record findings",
+        "mandatory": true,
+        "parts": []
+      },
+      {
+        "task_id": "CONNECTION",
+        "package_id": "P1000",
+        "name": "Check connections and visible condition",
+        "mandatory": true,
+        "parts": []
+      },
+      {
+        "task_id": "WASHER",
+        "package_id": "P1000",
+        "name": "Top up washer fluid if needed",
+        "mandatory": false,
+        "parts": [
+          {
+            "sku": "SP-ELM-WASHER",
+            "quantity": "1",
+            "unit": "L"
+          }
+        ]
+      }
+    ],
+    "parts": [
+      {
+        "sku": "SP-ELM-AIR",
+        "name": "Engine air filter",
+        "quantity": "1",
+        "required_quantity": "1",
+        "unit": "unit",
+        "model_id": "ELM"
+      },
+      {
+        "sku": "SP-ELM-PLUG",
+        "name": "Spark-plug set",
+        "quantity": "1",
+        "required_quantity": "1",
+        "unit": "set",
+        "model_id": "ELM"
+      },
+      {
+        "sku": "SP-ELM-WIPE",
+        "name": "Cleaning wipe",
+        "quantity": "5",
+        "required_quantity": "5",
+        "unit": "unit",
+        "model_id": "ELM"
+      },
+      {
+        "sku": "SP-ELM-OIL",
+        "name": "Engine oil",
+        "quantity": "6.3",
+        "required_quantity": "6.3",
+        "unit": "L",
+        "model_id": "ELM"
+      },
+      {
+        "sku": "SP-ELM-FILTER",
+        "name": "Oil filter",
+        "quantity": "1",
+        "required_quantity": "1",
+        "unit": "unit",
+        "model_id": "ELM"
+      },
+      {
+        "sku": "SP-ELM-SEAL",
+        "name": "Sealing washer",
+        "quantity": "1",
+        "required_quantity": "1",
+        "unit": "unit",
+        "model_id": "ELM"
+      },
+      {
+        "sku": "SP-ELM-BASIC-KIT",
+        "name": "Basic service consumables kit",
+        "quantity": "1",
+        "required_quantity": "1",
+        "unit": "unit",
+        "model_id": "ELM"
+      },
+      {
+        "sku": "SP-ELM-WASHER",
+        "name": "Washer fluid",
+        "quantity": "1",
+        "required_quantity": "0",
+        "unit": "L",
+        "model_id": "ELM"
+      }
+    ]
+  }
+}

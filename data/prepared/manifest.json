@@ -1,0 +1,27 @@
+{
+  "policy": "fixed-km-1",
+  "as_of": "2025-12-31",
+  "source_revision": "0f3663e31ea6610eb2a00256ca0d984ebc7c586b",
+  "source": {
+    "assets": "e632052b8e45fef4dadc6ba7ec2876ac5408b992626c8a293b8d421778517340",
+    "daily": "5741cd3ca7d34ec61093ba37b036cb0dda418d323d4d5a40ba07764b4c13b579"
+  },
+  "seed": 20261028,
+  "synthetic": true,
+  "counts": {
+    "assets": 1000,
+    "observations": 365000,
+    "occurrences": 25813,
+    "service_history": 5355
+  },
+  "customers": 201,
+  "sha256": {
+    "assets.parquet": "56b5aa9e4be7b26a88ac98bf21f569241c374b6ec7bb471afb7262deb9a10bd8",
+    "catalog.json": "9491bd1172e1e6877d9961fdd05b77710ead424d1e7cbb339ad5dec013c0f3e3",
+    "observations.parquet": "d38dd7fbfe7bb245e9743a8bd686cf5823fbeac018073c0f03711ad826c8aeea",
+    "occurrences.parquet": "41cd86617608eb2706d7c0415ecdcfd72e8c241691df18a96e2a3c55d4c1a5e9",
+    "service_history.parquet": "846b5c1da77a4bbfa982bc67785310c1da75a68bb2a9102128b39a8bd462d5f4"
+  },
+  "precoverage": "Milestones at/below the first observed counter have unknown crossing/service history and are not fabricated.",
+  "precision": "Daily first-observed dates, not intraday crossing times"
+}
