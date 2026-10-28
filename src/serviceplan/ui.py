@@ -224,13 +224,19 @@ def maintenance_overview(s, t):
             filters[col] = cols[i % 4].selectbox(
                 label, options, index=options.index(value) if value in options else 0, key="sp_f_" + col
             )
+        sort_options = ["Oldest outstanding first", "Target km", "Vehicle"]
         filters["sort"] = st.selectbox(
-            "Sort", ["Oldest outstanding first", "Target km", "Vehicle"], key="sp_sort"
+            "Sort", sort_options, index=sort_options.index(saved.get("sort", sort_options[0])), key="sp_sort"
         )
-        if st.checkbox("Filter first-observed crossing dates", key="sp_use_dates"):
+        if st.checkbox(
+            "Filter first-observed crossing dates", value=bool(saved.get("date_from")), key="sp_use_dates"
+        ):
             dates = st.date_input(
                 "Crossing date range (UTC)",
-                value=(date(2025, 1, 1), date.fromisoformat(s.as_of)),
+                value=(
+                    date.fromisoformat(saved.get("date_from", "2025-01-01")),
+                    date.fromisoformat(saved.get("date_to", s.as_of)),
+                ),
                 key="sp_dates",
             )
             if len(dates) == 2:
@@ -467,13 +473,18 @@ def orders(s, t):
     st.caption(
         f"Saved orders · Open: {counts.get('Open', 0)} · Completed: {counts.get('Completed', 0)} · Rejected: {counts.get('Rejected', 0)}. Sign-out does not delete history."
     )
+    saved_view = st.session_state.get("sp_order_view", {})
     if st.session_state.pop("sp_show_history", False):
         st.session_state.sp_order_status = "All"
     if "sp_order_status" not in st.session_state:
-        st.session_state.sp_order_status = "Open"
+        st.session_state.sp_order_status = saved_view.get("status", "Open")
     c = st.columns([1, 2])
     status = c[0].selectbox("Order status", ["Open", "Completed", "Rejected", "All"], key="sp_order_status")
-    q = c[1].text_input("Search order or vehicle", key="sp_order_search")
+    q = c[1].text_input("Search order or vehicle", value=saved_view.get("search", ""), key="sp_order_search")
+    if status != saved_view.get("status", status) or q != saved_view.get("search", q):
+        saved_view["page"] = 1
+        st.session_state.sp_order_page = 1
+    st.session_state.sp_order_view = dict(status=status, search=q, page=saved_view.get("page", 1))
     if status == "Open" and counts.get("Completed", 0) + counts.get("Rejected", 0):
         st.info("Completed and rejected orders remain saved in history.")
         st.button("View all saved orders", on_click=lambda: st.session_state.update(sp_show_history=True))
@@ -496,9 +507,10 @@ def orders(s, t):
         min_value=1,
         max_value=max(1, math.ceil(len(filtered) / 25)),
         step=1,
-        value=1,
+        value=min(saved_view.get("page", 1), max(1, math.ceil(len(filtered) / 25))),
         key="sp_order_page",
     )
+    st.session_state.sp_order_view["page"] = page
     visible, _, _ = page_slice(filtered, page)
     e = st.dataframe(
         display(

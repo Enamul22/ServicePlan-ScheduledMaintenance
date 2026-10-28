@@ -61,11 +61,61 @@ def test_customer_ui_completion_relogin_admin_readback(tmp_path, tiny, monkeypat
     button(at, "View all saved orders").click().run()
     assert at.selectbox(key="sp_order_status").value == "All"
     assert at.dataframe[0].value["Order status"].tolist() == ["Completed"]
+    at.session_state["sp_order"] = oid
+    at.run()
+    button(at, "← Back to work orders").click().run()
+    assert at.selectbox(key="sp_order_status").value == "All"
+    assert len(at.dataframe[0].value) == 1
     button(at, "Sign out").click().run()
     sign_in(at, "admin@serviceplan.example", "serviceplan-admin-demo")
     assert at.title[0].value == "Maintenance overview"
+    at.selectbox(key="sp_sort").select("Target km")
+    at.checkbox(key="sp_use_dates").check()
+    at.run()
+    saved = dict(at.session_state["sp_filters"])
     at.session_state["sp_selected"] = r["maintenance_id"]
     at.run()
     assert not at.exception
     assert any("5 / 5" in x.value for x in at.markdown)
     assert not any(b.label == "Submit response" for b in at.button)
+    button(at, "← Back to maintenance").click().run()
+    assert not at.exception and at.session_state["sp_filters"] == saved
+
+
+def test_admin_create_and_customer_reject_interface(tmp_path, tiny, monkeypatch):
+    monkeypatch.setenv("SERVICEPLAN_MODE", "local")
+    monkeypatch.setenv("SERVICEPLAN_DB", str(tmp_path / "rejection.sqlite"))
+    s = Service(mode="local", path=tmp_path / "rejection.sqlite", data=tiny)
+    a = s.login("admin@serviceplan.example", "serviceplan-admin-demo")
+    mid = s.maintenance(a).query('vehicle_id=="VEH-0001" and target_km==6000').maintenance_id.iloc[0]
+    at = AppTest.from_file(ROOT / "app.py", default_timeout=30)
+    at.session_state["sp_service"] = s
+    at.session_state["sp_token"] = a
+    at.session_state["sp_selected"] = mid
+    at.run()
+    button(at, "Create work order").click().run()
+    assert not at.exception
+    oid = s.item(a, mid)["order_id"]
+    assert oid and not any(b.label == "Create work order" for b in at.button)
+    # Quarantined data remains inspectable without formatting unknown km as a number.
+    with s.atomic():
+        s.db.execute("update vehicles set current_km=null,data_status='Invalid' where vehicle_id='VEH-0001'")
+    at.run()
+    assert not at.exception and at.warning
+    button(at, "Sign out").click().run()
+    # Independent customer browser/session against the saved database.
+    at = AppTest.from_file(ROOT / "app.py", default_timeout=30).run()
+    sign_in(at, "customer0000@serviceplan.example", "serviceplan-customer-demo")
+    at.session_state["sp_order"] = oid
+    at.run()
+    at.radio(key="sp_decision_" + oid).set_value("Rejected").run()
+    next(x for x in at.text_area if x.label == "Rejection reason (required)").set_value(
+        "Review example: declined"
+    )
+    button(at, "Submit response").click().run()
+    assert not at.exception and not at.error
+    fresh = at.session_state["sp_service"]
+    c = at.session_state["sp_token"]
+    response = fresh.order(c, oid)["response"]
+    assert response["decision"] == "Rejected" and response["actual_parts"] is None
+    assert response["rejection_reason"] == "Review example: declined"

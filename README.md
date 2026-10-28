@@ -18,6 +18,7 @@ This independent portfolio application uses a fictional fleet and fictional sche
 ![Schedule evidence](docs/screenshots/schedule-evidence.jpg)
 ![Customer service response](docs/screenshots/customer-response.jpg)
 ![Retained completed history](docs/screenshots/saved-history.jpg)
+![Saved service feedback after restart](docs/screenshots/saved-feedback.jpg)
 
 ## Schedules and data
 

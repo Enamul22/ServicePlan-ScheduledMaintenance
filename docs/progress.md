@@ -10,3 +10,5 @@
 - Local and PostgreSQL tests exercise concurrency, rollback, retry reconciliation, ownership, snapshot preservation, logout/relogin, fresh Python process and repeated migrations/reference import. Streamlit AppTest checks completion and retained history across sign-in.
 - Browser/interface, clean-clone and GitHub CI verification are recorded in verification.md with measured outcomes.
 - Deployment intentionally left to Enamul after review; private permanent connection handoff is ignored and permission-restricted.
+
+- Final navigation review preserved administrator sort/date context and customer All-history context across detail/back navigation. Added UI create/reject and invalid-counter inspection checks. Real browser restart retained the exact completed response. Initial GitHub CI passed all 28 tests against PostgreSQL 18; final validation includes the added UI check.
